@@ -18,6 +18,11 @@
  		 *Creating the contacts table
  		 */
          $this->createContactTable();
+
+         /**
+         *To populate the data in the contacts table
+         */
+         $this->populateContacts();
  	}
     /**
     *this function creates the database
@@ -97,6 +102,29 @@
  		return $data;
 
  	}
+    public function populateContacts()
+    {
+    	$sql = "INSERT IGNORE INTO `contacts` (`id`, `name`, `email`, `phone`) VALUES
+	          (1, 'orie chinedu', 'oriechinedu@gmail.com', '07035052689'),
+	          (2, 'Emmanuel Chinedu', 'emmanuel@example.com', '0805678909876'),
+	          (3, 'orie Emmanuel', 'oriechinedu@example.com', '08035052689'),
+	          (4, 'John Doe Emmanuel', 'johndoe@example.com', '08055052689'),
+	           (5, 'Foo Bar', 'foobar@example.com', '08035052699')";
+
+	    $this->connection->select_db($this->db_name);
+
+ 		if ($this->connection->connect_error)
+ 		{
+ 			die('unable to connect to database'.$this->connection->error);
+ 		}
+ 		$result = $this->connection->query($sql);
+
+ 		if ( ! $result)
+ 		{
+ 			echo 'unable to insert into contacts table'.$this->connection->error;
+ 		}
+
+    }
 
 
  }

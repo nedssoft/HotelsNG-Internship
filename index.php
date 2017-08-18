@@ -30,8 +30,6 @@
    	<tbody>
    
    	<?php 
-      if (! empty($contacts))
-      {
           for($i=0; $i<count($contacts); $i++)
           {
           	echo '<tr><td>'.$contacts[$i]['id'].'</td><br>'.
@@ -39,13 +37,8 @@
           	     '<td>'.$contacts[$i]['email'].'</td><br>'.
           	     '<td>'.$contacts[$i]['phone'].'</td></tr>';
           }       
-       
-       } 
-       else{
-        echo 'Oops! the contacts table is not yet created<br>
-        Please Import the hng.sql file into the hng database to populate the contacts table';
-       }
-   	 ?>
+      
+         	 ?>
    	 
    	 </tbody>
    </table>
